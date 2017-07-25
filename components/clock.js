@@ -1,15 +1,16 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const pad = n => (n < 10 ? `0${n}` : n)
+const pad = (n) => (n < 10 ? `0${n}` : n);
 
-const format = t => {
-  const hours = t.getUTCHours()
-  const minutes = t.getUTCMinutes()
-  const seconds = t.getUTCSeconds()
-  return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`
-}
+const format = (t) => {
+  const hours = t.getUTCHours();
+  const minutes = t.getUTCMinutes();
+  const seconds = t.getUTCSeconds();
+  return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+};
 
-function Clock ({lastUpdate, light}) {
+function Clock({ lastUpdate, light }) {
   return (
     <div className={light ? 'light' : ''}>
       {format(new Date(lastUpdate))}
@@ -26,7 +27,12 @@ function Clock ({lastUpdate, light}) {
         }
       `}</style>
     </div>
-  )
+  );
 }
 
-export default Clock
+Clock.propTypes = {
+  lastUpdate: PropTypes.number,
+  light: PropTypes.bool,
+};
+
+export default Clock;

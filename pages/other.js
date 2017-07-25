@@ -1,21 +1,25 @@
-import React from 'react'
-
-import {increment, startClock} from '../actions'
-import {withReduxSaga} from '../store'
-import Page from '../components/page'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { increment, startClock } from '../actions';
+import { withReduxSaga } from '../store';
+import Page from '../components/page';
 
 class Counter extends React.Component {
-  static async getInitialProps ({store}) {
-    store.dispatch(increment())
+  static propTypes = {
+    dispatch: PropTypes.func,
   }
 
-  componentDidMount () {
-    this.props.dispatch(startClock())
+  static async getInitialProps({ store }) {
+    store.dispatch(increment());
   }
 
-  render () {
-    return <Page title='Other Page' linkTo='/' />
+  componentDidMount() {
+    this.props.dispatch(startClock());
+  }
+
+  render() {
+    return <Page title="Other Page" linkTo="/" />;
   }
 }
 
-export default withReduxSaga(Counter)
+export default withReduxSaga(Counter);

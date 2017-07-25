@@ -1,17 +1,23 @@
-import React, {Component} from 'react'
-import {connect} from 'react-redux'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectCount } from '../selectors';
 
-import {increment} from '../actions'
+import { increment } from '../actions';
 
 class AddCount extends Component {
-  add = () => {
-    this.props.onIncrementClick()
+  static propTypes = {
+    onIncrementClick: PropTypes.func.isRequired,
+    count: PropTypes.number,
   }
 
-  render () {
-    const {count} = this.props
+  add = () => {
+    this.props.onIncrementClick();
+  }
+
+  render() {
+    const { count } = this.props;
     return (
       <div>
         <style jsx>{`
@@ -24,19 +30,18 @@ class AddCount extends Component {
         </h1>
         <button onClick={this.props.onIncrementClick}>Add To Count</button>
       </div>
-    )
+    );
   }
 }
 
 const mapStateToProps = createStructuredSelector({
   count: selectCount(),
-})
+});
 // const mapStateToProps = ({count}) => ({count})
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onIncrementClick: (evt) => {
-      dispatch(increment())
-    }
-  }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(AddCount)
+const mapDispatchToProps = (dispatch) => ({
+  onIncrementClick: () => {
+    dispatch(increment());
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddCount);

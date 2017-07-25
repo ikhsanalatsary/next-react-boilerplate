@@ -1,19 +1,20 @@
-import React from 'react'
-import styled from 'styled-components'
-import Link from 'next/link'
-import {connect} from 'react-redux'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import Link from 'next/link';
+import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectLight, selectLastUpdate, selectPlaceholderData } from '../selectors';
 
-import AddCount from './add-count'
-import Clock from './clock'
+import AddCount from './add-count';
+import Clock from './clock';
 
 const Title = styled.h1`
   color: blue;
   font-size: 50px;
-`
+`;
 
-function Page ({error, lastUpdate, light, linkTo, placeholderData, title}) {
+function Page({ error, lastUpdate, light, linkTo, placeholderData, title }) {
   return (
     <div>
       <Title>
@@ -33,17 +34,26 @@ function Page ({error, lastUpdate, light, linkTo, placeholderData, title}) {
           </code>
         </pre>}
       {error &&
-        <p style={{color: 'red'}}>
+        <p style={{ color: 'red' }}>
           Error: {error.message}
         </p>}
     </div>
-  )
+  );
 }
 
 const mapStateToProps = createStructuredSelector({
   lastUpdate: selectLastUpdate(),
   light: selectLight(),
   placeholderData: selectPlaceholderData(),
-})
+});
 
-export default connect(mapStateToProps)(Page)
+Page.propTypes = {
+  error: PropTypes.bool,
+  lastUpdate: PropTypes.number,
+  light: PropTypes.bool,
+  linkTo: PropTypes.string,
+  placeholderData: PropTypes.array,
+  title: PropTypes.string,
+};
+
+export default connect(mapStateToProps)(Page);
