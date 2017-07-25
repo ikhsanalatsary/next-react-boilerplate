@@ -2,7 +2,7 @@
 
 # Base on redux-saga example
 
-> This example and documentation is based on the [with-redux](https://github.com/zeit/next.js/tree/master/examples/with-redux) example.
+> This example and documentation is based on the [with-redux-saga](https://github.com/zeit/next.js/tree/v3-beta/examples/with-redux-saga) example.
 
 ## Feature
 
@@ -12,14 +12,13 @@
 - styled-components
 - Immutable
 - react-helmet?
+- eslint
 
 ## How to use
 
-Download the example [or clone the repo](https://github.com/zeit/next.js):
-
 ```bash
-curl https://codeload.github.com/zeit/next.js/tar.gz/master | tar -xz --strip=2 next.js-master/examples/with-redux-saga
-cd with-redux-saga
+git clone https://github.com/ikhsanalatsary/react-boilerplate-next.git
+cd react-boilerplate-next
 ```
 
 Install it and run:
