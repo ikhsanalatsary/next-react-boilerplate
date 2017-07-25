@@ -16,3 +16,8 @@ export const selectLastUpdate = () => createSelector(
   selectState(),
   subState => subState.lastUpdate
 )
+
+export const selectPlaceholderData = () => createSelector(
+  selectState(),
+  subState => subState.placeholderData
+)
