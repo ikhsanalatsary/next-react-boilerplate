@@ -106,6 +106,7 @@
   },
   "devDependencies": {
     "babel-eslint": "7.1.1",
+    "babel-plugin-styled-components": "^1.1.5",
     "eslint": "3.11.1",
     "eslint-config-airbnb": "13.0.0",
     "eslint-config-airbnb-base": "10.0.1",
