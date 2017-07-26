@@ -21,3 +21,8 @@ export const selectPlaceholderData = () => createSelector(
   selectState(),
   (subState) => subState.placeholderData
 );
+
+export const selectError = () => createSelector(
+  selectState(),
+  (subState) => subState.error
+);

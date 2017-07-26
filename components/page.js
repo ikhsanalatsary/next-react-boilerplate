@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { selectLight, selectLastUpdate, selectPlaceholderData } from '../selectors';
+import { selectLight, selectLastUpdate, selectPlaceholderData, selectError } from '../selectors';
 
 import AddCount from './add-count';
 import Clock from './clock';
@@ -45,10 +45,14 @@ const mapStateToProps = createStructuredSelector({
   lastUpdate: selectLastUpdate(),
   light: selectLight(),
   placeholderData: selectPlaceholderData(),
+  error: selectError(),
 });
 
 Page.propTypes = {
-  error: PropTypes.bool,
+  error: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.object,
+  ]),
   lastUpdate: PropTypes.number,
   light: PropTypes.bool,
   linkTo: PropTypes.string,
