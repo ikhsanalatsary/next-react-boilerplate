@@ -4,14 +4,16 @@
 
 > This example and documentation is based on the [with-redux-saga](https://github.com/zeit/next.js/tree/v3-beta/examples/with-redux-saga) example.
 
-## Feature
+## Tech Stack
 
 - redux
 - redux-saga
 - reselect
 - styled-components
-- Immutable
+- ImmutableJS
 - react-helmet?
+- i18n?
+- offline-first, add to homescreen, performant web font loading and image optimisation?
 - eslint
 
 ## How to use
