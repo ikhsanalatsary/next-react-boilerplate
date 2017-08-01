@@ -5,12 +5,13 @@ import { all, call, put, take, takeLatest } from 'redux-saga/effects';
 import es6promise from 'es6-promise';
 import 'isomorphic-fetch';
 
-import { actionTypes, failure, loadDataSuccess, tickClock } from './actions';
+import { LOAD_DATA, START_CLOCK } from './constants';
+import { failure, loadDataSuccess, tickClock } from './actions';
 
 es6promise.polyfill();
 
 function* runClockSaga() {
-  yield take(actionTypes.START_CLOCK);
+  yield take(START_CLOCK);
   while (true) { // eslint-disable-line no-constant-condition
     yield put(tickClock(false));
     yield call(delay, 800);
@@ -30,7 +31,7 @@ function* loadDataSaga() {
 function* rootSaga() {
   yield all([
     call(runClockSaga),
-    takeLatest(actionTypes.LOAD_DATA, loadDataSaga),
+    takeLatest(LOAD_DATA, loadDataSaga),
   ]);
 }
 

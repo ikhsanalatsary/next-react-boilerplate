@@ -1,28 +1,28 @@
 import { createSelector } from 'reselect';
 
-export const selectState = () => (state) => state;
+export const selectState = () => (state) => state.get('global');
 
 export const selectCount = () => createSelector(
   selectState(),
-  (subState) => subState.count
+  (globalState) => globalState.get('count')
 );
 
 export const selectLight = () => createSelector(
   selectState(),
-  (subState) => subState.light
+  (globalState) => globalState.get('light')
 );
 
 export const selectLastUpdate = () => createSelector(
   selectState(),
-  (subState) => subState.lastUpdate
+  (globalState) => globalState.get('lastUpdate')
 );
 
 export const selectPlaceholderData = () => createSelector(
   selectState(),
-  (subState) => subState.placeholderData
+  (globalState) => globalState.get('placeholderData')
 );
 
 export const selectError = () => createSelector(
   selectState(),
-  (subState) => subState.error
+  (globalState) => globalState.get('error')
 );

@@ -1,41 +1,34 @@
-export const actionTypes = {
-  FAILURE: 'FAILURE',
-  INCREMENT: 'INCREMENT',
-  LOAD_DATA: 'LOAD_DATA',
-  LOAD_DATA_SUCCESS: 'LOAD_DATA_SUCCESS',
-  START_CLOCK: 'START_CLOCK',
-  TICK_CLOCK: 'TICK_CLOCK',
-};
+import { FAILURE, INCREMENT, LOAD_DATA, LOAD_DATA_SUCCESS, START_CLOCK, TICK_CLOCK } from './constants';
 
 export function failure(error) {
   return {
-    type: actionTypes.FAILURE,
+    type: FAILURE,
     error,
   };
 }
 
 export function increment() {
-  return { type: actionTypes.INCREMENT };
+  return { type: INCREMENT };
 }
 
 export function loadData() {
-  return { type: actionTypes.LOAD_DATA };
+  return { type: LOAD_DATA };
 }
 
 export function loadDataSuccess(data) {
   return {
-    type: actionTypes.LOAD_DATA_SUCCESS,
+    type: LOAD_DATA_SUCCESS,
     data,
   };
 }
 
 export function startClock() {
-  return { type: actionTypes.START_CLOCK };
+  return { type: START_CLOCK };
 }
 
 export function tickClock(isServer) {
   return {
-    type: actionTypes.TICK_CLOCK,
+    type: TICK_CLOCK,
     light: !isServer,
     ts: Date.now(),
   };

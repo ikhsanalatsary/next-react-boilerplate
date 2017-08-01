@@ -56,7 +56,10 @@ Page.propTypes = {
   lastUpdate: PropTypes.number,
   light: PropTypes.bool,
   linkTo: PropTypes.string,
-  placeholderData: PropTypes.array,
+  placeholderData: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object,
+  ]),
   title: PropTypes.string,
 };
 

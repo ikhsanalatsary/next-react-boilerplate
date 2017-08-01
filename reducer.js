@@ -1,42 +1,35 @@
-import { actionTypes } from './actions';
+import { fromJS } from 'immutable';
+import { FAILURE, INCREMENT, LOAD_DATA_SUCCESS, TICK_CLOCK } from './constants';
 
-export const exampleInitialState = {
+export const GlobalState = fromJS({
   count: 0,
   error: false,
   lastUpdate: 0,
   light: false,
-  placeholderData: null,
-};
+  placeholderData: [],
+});
 
-function reducer(state = exampleInitialState, action) {
+const increment = (v) => v + 1;
+
+function rootReducer(state = GlobalState, action) {
   switch (action.type) {
-    case actionTypes.FAILURE:
-      return {
-        ...state,
-        ...{ error: action.error },
-      };
+    case FAILURE:
+      return state.set('error', action.error);
 
-    case actionTypes.INCREMENT:
-      return {
-        ...state,
-        ...{ count: state.count + 1 },
-      };
+    case INCREMENT:
+      return state.update('count', increment);
 
-    case actionTypes.LOAD_DATA_SUCCESS:
-      return {
-        ...state,
-        ...{ placeholderData: action.data },
-      };
+    case LOAD_DATA_SUCCESS:
+      return state.set('placeholderData', action.data);
 
-    case actionTypes.TICK_CLOCK:
-      return {
-        ...state,
-        ...{ lastUpdate: action.ts, light: !!action.light },
-      };
+    case TICK_CLOCK:
+      return state
+        .set('lastUpdate', action.ts)
+        .set('light', !!action.light);
 
     default:
       return state;
   }
 }
 
-export default reducer;
+export default rootReducer;
