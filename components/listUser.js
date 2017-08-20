@@ -6,7 +6,7 @@ function ListUser({ placeholderData }) {
   return (
     <ul>
       {toJS(placeholderData).map((data) => (
-        <li key={data.id}>{data.name}</li>
+        <li key={`user-${data.id}`}>{data.name}</li>
       ))}
     </ul>
   );
