@@ -14,8 +14,12 @@
 - react-helmet?
 - i18n?
 - offline-first
-- add to homescreen?
+- add to homescreen
 - eslint
+
+## PWA Report
+
+![PWA Report](/PWA-report.png)
 
 ## How to use
 
