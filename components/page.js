@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Link from 'next/link';
@@ -8,37 +8,36 @@ import { selectLight, selectLastUpdate, selectPlaceholderData, selectError } fro
 
 import AddCount from './add-count';
 import Clock from './clock';
+import ListUser from './listUser';
 
 const Title = styled.h1`
   color: blue;
   font-size: 50px;
 `;
 
-function Page({ error, lastUpdate, light, linkTo, placeholderData, title }) {
-  return (
-    <div>
-      <Title>
-        {title}
-      </Title>
-      <Clock lastUpdate={lastUpdate} light={light} />
-      <AddCount />
-      <nav>
-        <Link href={linkTo}>
-          <a>Navigate</a>
-        </Link>
-      </nav>
-      {placeholderData &&
-        <pre>
-          <code>
-            {JSON.stringify(placeholderData, null, 2)}
-          </code>
-        </pre>}
-      {error &&
-        <p style={{ color: 'red' }}>
-          Error: {error.message}
-        </p>}
-    </div>
-  );
+class Page extends PureComponent { // eslint-disable-line
+  render() {
+    const { error, lastUpdate, light, linkTo, placeholderData, title } = this.props;
+    return (
+      <div>
+        <Title>
+          {title}
+        </Title>
+        <Clock lastUpdate={lastUpdate} light={light} />
+        <AddCount />
+        <nav>
+          <Link href={linkTo}>
+            <a>Navigate</a>
+          </Link>
+        </nav>
+        {placeholderData && ListUser({ placeholderData })}
+        {error &&
+          <p style={{ color: 'red' }}>
+            Error: {error.message}
+          </p>}
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = createStructuredSelector({

@@ -92,6 +92,7 @@
   "dependencies": {
     "es6-promise": "4.1.1",
     "immutable": "^3.8.1",
+    "immutable-to-js": "1.0.0",
     "isomorphic-fetch": "2.2.1",
     "next": "latest",
     "next-redux-saga": "1.0.1",

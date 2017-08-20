@@ -4,7 +4,7 @@ import { increment, loadData, startClock } from '../actions';
 import { withReduxSaga } from '../store';
 import Page from '../components/page';
 
-class Counter extends React.Component {
+class Counter extends React.PureComponent {
   static propTypes = {
     dispatch: PropTypes.func,
   }
