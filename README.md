@@ -13,7 +13,8 @@
 - ImmutableJS
 - react-helmet?
 - i18n?
-- offline-first, add to homescreen, performant web font loading and image optimisation?
+- offline-first
+- add to homescreen?
 - eslint
 
 ## How to use
