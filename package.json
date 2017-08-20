@@ -1,7 +1,21 @@
 {
-  "name": "with-redux-saga",
+  "name": "react-boilerplate-next",
   "version": "1.0.0",
   "license": "MIT",
+  "keywords": [
+    "react",
+    "react-js",
+    "reactjs",
+    "next",
+    "nextjs",
+    "redux",
+    "redux saga",
+    "reactboilerplate",
+    "reactboilerplatenext",
+    "immutable",
+    "immutable-js"
+  ],
+  "author": "Abdul Fattah Ikhsan <ikhsannetwork@gmail.com> (http://ikhsannetwork.com/)",
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
