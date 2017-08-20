@@ -10,7 +10,7 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
-          <title>Xcidic Blog</title>
+          <title>React BoilerPlate Next</title>
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
           {styleTags}
         </Head>
