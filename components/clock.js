@@ -23,7 +23,8 @@ function Clock({ lastUpdate, light }) {
           background-color: #000;
         }
         .light {
-          background-color: #999;
+          background-color: #ffaeae;
+          color: #000;
         }
       `}</style>
     </div>

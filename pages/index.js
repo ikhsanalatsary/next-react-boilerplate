@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { increment, loadData, startClock } from '../actions';
 import { withReduxSaga } from '../store';
+import Layout from '../components/layout';
 import Page from '../components/page';
 
 class Counter extends React.PureComponent {
@@ -21,7 +22,11 @@ class Counter extends React.PureComponent {
   }
 
   render() {
-    return <Page title="Index Page" linkTo="/other" />;
+    return (
+      <Layout>
+        <Page title="Index Page" linkTo="/other" />
+      </Layout>
+    );
   }
 }
 
