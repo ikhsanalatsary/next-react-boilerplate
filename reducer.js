@@ -1,7 +1,7 @@
-import { fromJS } from 'immutable';
+import Immutable from 'seamless-immutable';
 import { FAILURE, INCREMENT, LOAD_DATA_SUCCESS, TICK_CLOCK } from './constants';
 
-export const GlobalState = fromJS({
+export const GlobalState = Immutable({
   count: 0,
   error: false,
   lastUpdate: 0,
@@ -9,7 +9,7 @@ export const GlobalState = fromJS({
   placeholderData: [],
 });
 
-const increment = (v) => v + 1;
+const increment = (count) => count + 1;
 
 function rootReducer(state = GlobalState, action) {
   switch (action.type) {

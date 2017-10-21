@@ -1,30 +1,35 @@
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import withRedux from 'next-redux-wrapper';
 import nextReduxSaga from 'next-redux-saga';
 import createSagaMiddleware from 'redux-saga';
-import { combineReducers } from 'redux-immutable';
-import { fromJS } from 'immutable';
+import Immutable from 'seamless-immutable';
 
 import rootReducer from './reducer';
 import rootSaga from './saga';
 
 const sagaMiddleware = createSagaMiddleware();
+const dev = process.env.NODE_ENV !== 'production';
+const windowExist = typeof window === 'object';
 const root = () => (combineReducers({
   global: rootReducer,
 }));
 
 /* eslint-disable no-underscore-dangle */
 const composeEnhancers =
-  process.env.NODE_ENV !== 'production' &&
-  typeof window === 'object' &&
+  dev &&
+  windowExist &&
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose;
 
 /* eslint-enable */
 export function configureStore(initialState = {}) {
+  /* eslint-disable no-param-reassign */
+  if (!initialState.toJS) initialState = Immutable(initialState);
+
+  /* eslint-enable */
   const store = createStore(
     root(),
-    fromJS(initialState),
+    initialState,
     composeEnhancers(applyMiddleware(sagaMiddleware))
   );
 
