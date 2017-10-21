@@ -8,7 +8,7 @@ import Page from '../components/page';
 class Counter extends React.Component {
   static propTypes = {
     dispatch: PropTypes.func,
-  }
+  };
 
   static async getInitialProps({ store }) {
     store.dispatch(increment());

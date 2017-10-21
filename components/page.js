@@ -4,7 +4,12 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { selectLight, selectLastUpdate, selectPlaceholderData, selectError } from '../selectors';
+import {
+  selectLight,
+  selectLastUpdate,
+  selectPlaceholderData,
+  selectError,
+} from '../selectors';
 
 import AddCount from './add-count';
 import Clock from './clock';
@@ -15,14 +20,20 @@ const Title = styled.h1`
   font-size: 50px;
 `;
 
-class Page extends PureComponent { // eslint-disable-line
+/* eslint-disable react/prefer-stateless-function */
+class Page extends PureComponent {
   render() {
-    const { error, lastUpdate, light, linkTo, placeholderData, title } = this.props;
+    const {
+      error,
+      lastUpdate,
+      light,
+      linkTo,
+      placeholderData,
+      title,
+    } = this.props;
     return (
       <div>
-        <Title>
-          {title}
-        </Title>
+        <Title>{title}</Title>
         <Clock lastUpdate={lastUpdate} light={light} />
         <AddCount />
         <nav>
@@ -31,10 +42,7 @@ class Page extends PureComponent { // eslint-disable-line
           </Link>
         </nav>
         {placeholderData && ListUser({ placeholderData })}
-        {error &&
-          <p style={{ color: 'red' }}>
-            Error: {error.message}
-          </p>}
+        {error && <p style={{ color: 'red' }}>Error: {error.message}</p>}
       </div>
     );
   }
@@ -48,17 +56,11 @@ const mapStateToProps = createStructuredSelector({
 });
 
 Page.propTypes = {
-  error: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.object,
-  ]),
+  error: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
   lastUpdate: PropTypes.number,
   light: PropTypes.bool,
   linkTo: PropTypes.string,
-  placeholderData: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.object,
-  ]),
+  placeholderData: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   title: PropTypes.string,
 };
 

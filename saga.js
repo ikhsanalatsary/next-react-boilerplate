@@ -12,7 +12,8 @@ es6promise.polyfill();
 
 function* runClockSaga() {
   yield take(START_CLOCK);
-  while (true) { // eslint-disable-line no-constant-condition
+  /* eslint-disable no-constant-condition */
+  while (true) {
     yield put(tickClock(false));
     yield call(delay, 800);
   }
@@ -29,10 +30,7 @@ function* loadDataSaga() {
 }
 
 function* rootSaga() {
-  yield all([
-    call(runClockSaga),
-    takeLatest(LOAD_DATA, loadDataSaga),
-  ]);
+  yield all([call(runClockSaga), takeLatest(LOAD_DATA, loadDataSaga)]);
 }
 
 export default rootSaga;

@@ -14,33 +14,34 @@ const ssrCache = new LRUCache({
   maxAge: 1000 * 60 * 60, // 1hour
 });
 
-app.prepare()
-.then(() => {
-  const server = express();
+app
+  .prepare()
+  .then(() => {
+    const server = express();
 
-  // Use the `renderAndCache` utility defined below to serve pages
-  server.get('/', (req, res) => {
-    renderAndCache(req, res, '/');
-  });
+    // Use the `renderAndCache` utility defined below to serve pages
+    server.get('/', (req, res) => {
+      renderAndCache(req, res, '/');
+    });
 
-  server.get('/service-worker.js', (req, res) => {
-    const parsedUrl = parse(req.url, true);
-    const { pathname } = parsedUrl;
-    const filePath = join(__dirname, '.next', pathname);
-    app.serveStatic(req, res, filePath);
-  });
+    server.get('/service-worker.js', (req, res) => {
+      const parsedUrl = parse(req.url, true);
+      const { pathname } = parsedUrl;
+      const filePath = join(__dirname, '.next', pathname);
+      app.serveStatic(req, res, filePath);
+    });
 
-  server.get('*', (req, res) => handle(req, res));
-  /* eslint-disable no-console */
-  server.listen(3000, (err) => {
-    if (err) throw err;
-    console.log('> Ready asa on http://localhost:3000');
+    server.get('*', (req, res) => handle(req, res));
+    /* eslint-disable no-console */
+    server.listen(3000, (err) => {
+      if (err) throw err;
+      console.log('> Ready asa on http://localhost:3000');
+    });
+  })
+  .catch((ex) => {
+    console.error(ex.stack);
+    process.exit(1);
   });
-})
-.catch((ex) => {
-  console.error(ex.stack);
-  process.exit(1);
-});
 
 /*
  * NB: make sure to modify this to take into account anything that should trigger
@@ -61,7 +62,8 @@ function renderAndCache(req, res, pagePath, queryParams) {
   }
 
   // If not let's render the page into HTML
-  app.renderToHTML(req, res, pagePath, queryParams)
+  app
+    .renderToHTML(req, res, pagePath, queryParams)
     .then((html) => {
       // Let's cache this page
       console.log(`CACHE MISS: ${key}`);

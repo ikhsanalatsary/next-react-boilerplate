@@ -23,9 +23,7 @@ function rootReducer(state = GlobalState, action) {
       return state.set('placeholderData', action.data);
 
     case TICK_CLOCK:
-      return state
-        .set('lastUpdate', action.ts)
-        .set('light', !!action.light);
+      return state.set('lastUpdate', action.ts).set('light', !!action.light);
 
     default:
       return state;

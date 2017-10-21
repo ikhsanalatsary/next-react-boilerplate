@@ -1,4 +1,11 @@
-import { FAILURE, INCREMENT, LOAD_DATA, LOAD_DATA_SUCCESS, START_CLOCK, TICK_CLOCK } from './constants';
+import {
+  FAILURE,
+  INCREMENT,
+  LOAD_DATA,
+  LOAD_DATA_SUCCESS,
+  START_CLOCK,
+  TICK_CLOCK,
+} from './constants';
 
 export function failure(error) {
   return {

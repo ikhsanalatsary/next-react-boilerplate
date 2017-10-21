@@ -18,7 +18,7 @@ function Clock({ lastUpdate, light }) {
         div {
           padding: 15px;
           display: inline-block;
-          color: #82FA58;
+          color: #82fa58;
           font: 50px menlo, monaco, monospace;
           background-color: #000;
         }

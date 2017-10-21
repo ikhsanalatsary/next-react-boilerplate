@@ -10,11 +10,11 @@ class AddCount extends Component {
   static propTypes = {
     onIncrementClick: PropTypes.func.isRequired,
     count: PropTypes.number,
-  }
+  };
 
   add = () => {
     this.props.onIncrementClick();
-  }
+  };
 
   render() {
     const { count } = this.props;
