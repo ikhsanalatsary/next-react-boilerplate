@@ -19,11 +19,18 @@
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js"
+    "start": "NODE_ENV=production node server.js",
+    "eslint-check": "eslint --print-config package.json | eslint-config-prettier-check",
+    "prettier": "prettier --ignore-path './.next/*' --config 'package.json' --write '**/*.js'",
+    "fix": "eslint **/*.js --fix",
+    "lint": "eslint -- ."
   },
   "eslintConfig": {
     "parser": "babel-eslint",
-    "extends": "airbnb",
+    "extends": [
+      "airbnb",
+      "prettier"
+    ],
     "env": {
       "browser": true,
       "node": true,
@@ -57,10 +64,7 @@
       ],
       "quotes": [
         "error",
-        "single",
-        {
-          "allowTemplateLiterals": true
-        }
+        "single"
       ],
       "import/imports-first": 0,
       "import/newline-after-import": 0,
@@ -128,10 +132,12 @@
     "eslint": "3.11.1",
     "eslint-config-airbnb": "13.0.0",
     "eslint-config-airbnb-base": "10.0.1",
+    "eslint-config-prettier": "2.6.0",
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-jsx-a11y": "2.2.3",
     "eslint-plugin-react": "6.7.1",
     "eslint-plugin-redux-saga": "0.1.5",
+    "prettier": "1.7.4",
     "redux-devtools-extension": "2.13.2"
   }
 }
