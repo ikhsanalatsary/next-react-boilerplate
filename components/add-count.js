@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { selectCount } from '../selectors';
+import { selectCount } from '../selectors/appSelector';
 
-import { increment } from '../actions';
+import { increment } from '../actions/appAction';
 
 class AddCount extends Component {
   static propTypes = {

@@ -1,19 +1,15 @@
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import withRedux from 'next-redux-wrapper';
 import nextReduxSaga from 'next-redux-saga';
 import createSagaMiddleware from 'redux-saga';
 import Immutable from 'seamless-immutable';
 
-import rootReducer from './reducer';
-import rootSaga from './saga';
+import rootReducer from './reducers';
+import rootSaga from './sagas';
 
 const sagaMiddleware = createSagaMiddleware();
 const dev = process.env.NODE_ENV !== 'production';
 const windowExist = typeof window === 'object';
-const root = () =>
-  combineReducers({
-    global: rootReducer,
-  });
 
 /* eslint-disable no-underscore-dangle */
 const composeEnhancers =
@@ -28,7 +24,7 @@ export function configureStore(initialState = {}) {
 
   /* eslint-enable */
   const store = createStore(
-    root(),
+    rootReducer(),
     initialState,
     composeEnhancers(applyMiddleware(sagaMiddleware))
   );

@@ -9,7 +9,7 @@ import {
   selectLastUpdate,
   selectPlaceholderData,
   selectError,
-} from '../selectors';
+} from '../selectors/appSelector';
 
 import AddCount from './add-count';
 import Clock from './clock';

@@ -5,8 +5,8 @@ import { all, call, put, take, takeLatest } from 'redux-saga/effects';
 import es6promise from 'es6-promise';
 import 'isomorphic-fetch';
 
-import { LOAD_DATA, START_CLOCK } from './constants';
-import { failure, loadDataSuccess, tickClock } from './actions';
+import { LOAD_DATA, START_CLOCK } from '../constants/appConstant';
+import { failure, loadDataSuccess, tickClock } from '../actions/appAction';
 
 es6promise.polyfill();
 
@@ -29,8 +29,8 @@ function* loadDataSaga() {
   }
 }
 
-function* rootSaga() {
+function* appWatcher() {
   yield all([call(runClockSaga), takeLatest(LOAD_DATA, loadDataSaga)]);
 }
 
-export default rootSaga;
+export default appWatcher;

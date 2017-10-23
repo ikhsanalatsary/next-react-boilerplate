@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { increment, loadData, startClock } from '../actions';
+import { increment, loadData, startClock } from '../actions/appAction';
 import { withReduxSaga } from '../store';
 import Layout from '../components/layout';
 import Page from '../components/page';

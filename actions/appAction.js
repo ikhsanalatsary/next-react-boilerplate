@@ -5,7 +5,7 @@ import {
   LOAD_DATA_SUCCESS,
   START_CLOCK,
   TICK_CLOCK,
-} from './constants';
+} from '../constants/appConstant';
 
 export function failure(error) {
   return {
