@@ -24,8 +24,8 @@
 ## How to use
 
 ```bash
-git clone https://github.com/ikhsanalatsary/react-boilerplate-next.git
-cd react-boilerplate-next
+git clone https://github.com/ikhsanalatsary/next-react-boilerplate.git
+cd next-react-boilerplate
 ```
 
 Install it and run:
