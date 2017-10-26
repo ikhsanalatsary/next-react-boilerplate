@@ -20,7 +20,7 @@ const composeEnhancers =
 /* eslint-enable */
 export function configureStore(initialState = {}) {
   /* eslint-disable no-param-reassign */
-  if (!initialState.toJS) initialState = Immutable(initialState);
+  if (!Immutable.isImmutable(initialState)) initialState = Immutable(initialState);
 
   /* eslint-enable */
   const store = createStore(
