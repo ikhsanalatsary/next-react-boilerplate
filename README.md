@@ -11,11 +11,14 @@
 - reselect
 - styled-components
 - ImmutableJS
-- react-helmet?
-- i18n?
+- react-helmet (pending)
+- i18n (pending)
 - offline-first
 - add to homescreen
 - eslint
+
+## Caution
+* This repo is still under development
 
 ## PWA Report
 
