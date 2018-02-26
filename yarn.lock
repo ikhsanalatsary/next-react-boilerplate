@@ -16,6 +16,10 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
+"@ikhsaan/create-reducer@1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@ikhsaan/create-reducer/-/create-reducer-1.0.1.tgz#d7a8de3aff9474c44c4b031ccc58f3384cae1d28"
+
 "@semantic-release/commit-analyzer@^3.0.1":
   version "3.0.7"
   resolved "https://registry.yarnpkg.com/@semantic-release/commit-analyzer/-/commit-analyzer-3.0.7.tgz#dc955444a6d3d2ae9b8e21f90c2c80c4e9142b2f"

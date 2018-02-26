@@ -1,6 +1,6 @@
 import Immutable from 'seamless-immutable';
+import createReducer from '@ikhsaan/create-reducer';
 import { FAILURE, INCREMENT, LOAD_DATA_SUCCESS, TICK_CLOCK } from '../constants/appConstant';
-import { createReducer } from '../lib'
 
 export const GlobalState = Immutable({
   count: 0,
