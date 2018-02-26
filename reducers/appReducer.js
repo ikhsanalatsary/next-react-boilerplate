@@ -1,5 +1,6 @@
 import Immutable from 'seamless-immutable';
 import { FAILURE, INCREMENT, LOAD_DATA_SUCCESS, TICK_CLOCK } from '../constants/appConstant';
+import { createReducer } from '../lib'
 
 export const GlobalState = Immutable({
   count: 0,
@@ -11,23 +12,19 @@ export const GlobalState = Immutable({
 
 const increment = (count) => count + 1;
 
-function appReducer(state = GlobalState, action) {
-  switch (action.type) {
-    case FAILURE:
-      return state.set('error', action.error);
-
-    case INCREMENT:
-      return state.update('count', increment);
-
-    case LOAD_DATA_SUCCESS:
-      return state.merge({ placeholderData: action.data });
-
-    case TICK_CLOCK:
-      return state.set('lastUpdate', action.ts).set('light', !!action.light);
-
-    default:
-      return state;
-  }
-}
+const appReducer = createReducer(GlobalState, {
+  [FAILURE](state, { error }) {
+    return state.set('error', error);
+  },
+  [INCREMENT](state) {
+    return state.update('count', increment);
+  },
+  [LOAD_DATA_SUCCESS](state, action) {
+    return state.merge({ placeholderData: action.data });
+  },
+  [TICK_CLOCK](state, action) {
+    return state.set('lastUpdate', action.ts).set('light', !!action.light);
+  },
+});
 
 export default appReducer;
