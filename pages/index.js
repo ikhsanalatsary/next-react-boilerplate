@@ -7,7 +7,7 @@ import Page from '../components/page';
 
 class Counter extends React.PureComponent {
   static propTypes = {
-    dispatch: PropTypes.func,
+    dispatch: PropTypes.func.isRequired,
   };
 
   static async getInitialProps({ store }) {

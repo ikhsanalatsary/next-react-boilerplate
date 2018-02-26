@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Link from 'next/link';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import {
@@ -14,6 +13,7 @@ import {
 import AddCount from './add-count';
 import Clock from './clock';
 import ListUser from './listUser';
+import Link from './linkAnchor';
 
 const Title = styled.h1`
   color: blue;
@@ -38,7 +38,7 @@ class Page extends PureComponent {
         <AddCount />
         <nav>
           <Link href={linkTo}>
-            <a>Navigate</a>
+            Navigate
           </Link>
         </nav>
         {placeholderData && ListUser({ placeholderData })}
@@ -56,12 +56,12 @@ const mapStateToProps = createStructuredSelector({
 });
 
 Page.propTypes = {
-  error: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
-  lastUpdate: PropTypes.number,
-  light: PropTypes.bool,
-  linkTo: PropTypes.string,
-  placeholderData: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
-  title: PropTypes.string,
+  error: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]).isRequired,
+  lastUpdate: PropTypes.number.isRequired,
+  light: PropTypes.bool.isRequired,
+  linkTo: PropTypes.string.isRequired,
+  placeholderData: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
+  title: PropTypes.string.isRequired,
 };
 
 export default connect(mapStateToProps)(Page);

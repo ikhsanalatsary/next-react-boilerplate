@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class Layout extends Component {
   static propTypes = {
-    children: PropTypes.object,
+    children: PropTypes.object.isRequired,
   };
 
   componentDidMount() {

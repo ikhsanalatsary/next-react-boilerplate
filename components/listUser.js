@@ -12,7 +12,7 @@ function ListUser({ placeholderData }) {
 }
 
 ListUser.propTypes = {
-  placeholderData: PropTypes.array,
+  placeholderData: PropTypes.array.isRequired,
 };
 
 export default ListUser;

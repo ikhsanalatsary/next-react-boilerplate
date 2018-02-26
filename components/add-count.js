@@ -9,7 +9,7 @@ import { increment } from '../actions/appAction';
 class AddCount extends Component {
   static propTypes = {
     onIncrementClick: PropTypes.func.isRequired,
-    count: PropTypes.number,
+    count: PropTypes.number.isRequired,
   };
 
   add = () => {
@@ -20,11 +20,13 @@ class AddCount extends Component {
     const { count } = this.props;
     return (
       <div>
-        <style jsx>{`
-          div {
-            padding: 0 0 20px 0;
-          }
-        `}</style>
+        <style jsx>
+          {`
+            div {
+              padding: 0 0 20px 0;
+            }
+          `}
+        </style>
         <h1>
           AddCount: <span>{count}</span>
         </h1>
