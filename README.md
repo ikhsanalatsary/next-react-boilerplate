@@ -1,4 +1,4 @@
-[![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/zeit/next.js/tree/master/examples/with-redux-saga)
+[![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/zeit/next.js/tree/master/examples/with-redux-saga) [![Greenkeeper badge](https://badges.greenkeeper.io/ikhsanalatsary/next-react-boilerplate.svg)](https://greenkeeper.io/)
 
 # Base on redux-saga example
 
