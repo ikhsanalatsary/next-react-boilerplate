@@ -23,7 +23,9 @@
     "eslint-check": "eslint --print-config package.json | eslint-config-prettier-check",
     "prettier": "prettier --ignore-path './.next/*' --config 'package.json' --write '**/*.js'",
     "fix": "eslint **/*.js --fix",
-    "lint": "eslint -- ."
+    "lint": "eslint -- .",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "eslintConfig": {
     "parser": "babel-eslint",
@@ -124,8 +126,9 @@
     "redux-saga": "0.16.0",
     "reselect": "^3.0.1",
     "seamless-immutable": "7.1.2",
-    "styled-components": "^2.2.2",
-    "sw-precache-webpack-plugin": "0.11.4"
+    "styled-components": "^2.4.0",
+    "sw-precache-webpack-plugin": "0.11.4",
+    "snyk": "^1.103.4"
   },
   "devDependencies": {
     "babel-eslint": "8.0.1",
@@ -140,5 +143,6 @@
     "eslint-plugin-redux-saga": "0.5.0",
     "prettier": "1.7.4",
     "redux-devtools-extension": "2.13.2"
-  }
+  },
+  "snyk": true
 }
